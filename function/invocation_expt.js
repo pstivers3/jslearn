@@ -3,16 +3,14 @@ var foo = function() {
 	return "I am foo";
 }
 
-var goo = function woo() {
-    console.log("I am woo, aka goo");
+// not recognized as a function, because of the declaration above?
+// var goo = function woo() {
+var goo = function() {
+    console.log("I am woo, aka goo"); // prints without calling the function goo
     function chew() {
         console.log ("munch munch. yummy!");
         return "munch munch. yummy!";
 	}
-}
-
-function boo() {
-    console.log("boo!");
 }
 
 ( function iife() {             // immediately invoked function
@@ -22,8 +20,6 @@ function boo() {
 foo();
 x = foo();
 console.log(x, "too");
-goo();
-goo.chew; //  does nothing
-boo();
 
-// woo();  // throws error, woo is undefined
+// y = goo(); // thows an error, goo is not a function
+// chew();  // throws error, good.chew is not a function
